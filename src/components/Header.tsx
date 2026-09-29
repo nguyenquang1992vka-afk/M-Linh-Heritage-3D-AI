@@ -345,7 +345,7 @@ export const Header: React.FC<HeaderProps> = ({
             </div>
             <div className="min-w-0">
               <h1 className="text-sm sm:text-xl font-extrabold text-[#F8F5EF] tracking-tight font-cinzel leading-none truncate">
-                MÊ LINH HERITAGE 3D AI
+                MÊ LINH HERITAGE
               </h1>
               <p className="text-[10px] sm:text-xs text-[#D4AF37] font-semibold tracking-wide mt-0.5 truncate">
                 {t("app_subtitle")}

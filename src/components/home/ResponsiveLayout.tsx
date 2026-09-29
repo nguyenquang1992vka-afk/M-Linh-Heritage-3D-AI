@@ -42,7 +42,7 @@ export const ResponsiveLayout: React.FC<ResponsiveLayoutProps> = ({
             </div>
             <div className="min-w-0">
               <div className="font-cinzel font-extrabold text-xs sm:text-lg lg:text-xl text-[#7A1215] tracking-tight truncate leading-tight">
-                MÊ LINH HERITAGE 3D AI
+                MÊ LINH HERITAGE
               </div>
               <div className="text-[10px] sm:text-xs font-bold text-stone-600 truncate">
                 {t("app_subtitle")}

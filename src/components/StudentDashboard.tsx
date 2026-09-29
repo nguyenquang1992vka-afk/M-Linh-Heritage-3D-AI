@@ -793,7 +793,7 @@ export const StudentDashboard: React.FC<StudentDashboardProps> = ({
           <div className="bg-[#FFFDF9] rounded-3xl border-4 border-[#D4AF37] max-w-2xl w-full p-6 sm:p-10 shadow-2xl space-y-6 text-center relative">
             <div className="border-2 border-[#8B1E1E]/30 rounded-2xl p-6 sm:p-8 space-y-4">
               <div className="text-xs font-extrabold uppercase tracking-[0.25em] text-[#8B1E1E]">
-                HỆ SINH THÁI SỐ MÊ LINH HERITAGE 3D AI
+                HỆ SINH THÁI SỐ MÊ LINH HERITAGE
               </div>
               <h3 className="text-2xl sm:text-3xl font-extrabold font-cinzel text-[#8B1E1E]">
                 GIẤY CHỨNG NHẬN ĐẠI SỨ DI SẢN SỐ

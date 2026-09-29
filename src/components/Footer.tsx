@@ -24,7 +24,7 @@ export const Footer: React.FC = () => {
             <div className="w-8 h-8 rounded-xl bg-[#8B1E1E] border border-[#D4AF37] flex items-center justify-center text-white text-xs">
               🏛️
             </div>
-            <span>MÊ LINH HERITAGE 3D AI</span>
+            <span>MÊ LINH HERITAGE</span>
           </div>
           <p className="text-xs font-semibold text-stone-200">
             {t("footer_ecosystem_desc")}
