@@ -1,0 +1,850 @@
+{
+  "userAccounts": [
+    {
+      "id": "adm-001",
+      "name": "Ban Quản Trị Di Sản Số Mê Linh",
+      "email": "nguyenquang1992vka@gmail.com",
+      "role": "admin",
+      "status": "active",
+      "school": "Trường Tiểu học Văn Khê – Xã Mê Linh, TP. Hà Nội",
+      "createdAt": "2026-09-01"
+    },
+    {
+      "id": "adm-002",
+      "name": "Quản trị viên Hệ thống",
+      "email": "admin@melinh.edu.vn",
+      "role": "admin",
+      "status": "active",
+      "school": "Trường Tiểu học Văn Khê – Xã Mê Linh, TP. Hà Nội",
+      "createdAt": "2026-09-01"
+    },
+    {
+      "id": "tch-001",
+      "name": "Cô Nguyễn Thị Lan",
+      "email": "lan.teacher@melinh.edu.vn",
+      "role": "teacher",
+      "status": "active",
+      "school": "Trường Tiểu học Văn Khê – Xã Mê Linh, TP. Hà Nội",
+      "subject": "Lịch sử & Địa lý (Khối 4)",
+      "createdLessonsCount": 14,
+      "studentParticipationCount": 342,
+      "createdAt": "2026-09-05"
+    },
+    {
+      "id": "tch-002",
+      "name": "Thầy Trần Văn Hùng",
+      "email": "hung.teacher@melinh.edu.vn",
+      "role": "teacher",
+      "status": "active",
+      "school": "Trường Tiểu học Văn Khê – Xã Mê Linh, TP. Hà Nội",
+      "subject": "Lịch sử & Địa lý (Khối 5)",
+      "createdLessonsCount": 11,
+      "studentParticipationCount": 318,
+      "createdAt": "2026-09-06"
+    },
+    {
+      "id": "tch-003",
+      "name": "Cô Phạm Thu Hương",
+      "email": "huong.teacher@haloi.edu.vn",
+      "role": "teacher",
+      "status": "active",
+      "school": "Trường Tiểu học Hạ Lôi – Xã Mê Linh, TP. Hà Nội",
+      "subject": "Giáo dục Địa phương & Trải nghiệm",
+      "createdLessonsCount": 9,
+      "studentParticipationCount": 295,
+      "createdAt": "2026-09-08"
+    },
+    {
+      "id": "tch-004",
+      "name": "Thầy Lê Minh Đức",
+      "email": "duc.teacher@trungvuong.edu.vn",
+      "role": "teacher",
+      "status": "active",
+      "school": "Trường THCS Trưng Vương – Xã Mê Linh, TP. Hà Nội",
+      "subject": "Lịch sử & Địa lý THCS",
+      "createdLessonsCount": 8,
+      "studentParticipationCount": 290,
+      "createdAt": "2026-09-10"
+    },
+    {
+      "id": "std-001",
+      "name": "Nguyễn Minh Anh",
+      "email": "minhanh.student@melinh.edu.vn",
+      "role": "student",
+      "status": "active",
+      "grade": "Lớp 4A",
+      "school": "Trường Tiểu học Văn Khê – Xã Mê Linh, TP. Hà Nội",
+      "createdAt": "2026-09-12"
+    },
+    {
+      "id": "std-002",
+      "name": "Trần Quốc Bảo",
+      "email": "quocbao.student@melinh.edu.vn",
+      "role": "student",
+      "status": "active",
+      "grade": "Lớp 4A",
+      "school": "Trường Tiểu học Văn Khê – Xã Mê Linh, TP. Hà Nội",
+      "createdAt": "2026-09-12"
+    },
+    {
+      "id": "std-003",
+      "name": "Lê Hà Phương",
+      "email": "haphuong.student@melinh.edu.vn",
+      "role": "student",
+      "status": "active",
+      "grade": "Lớp 5A",
+      "school": "Trường Tiểu học Văn Khê – Xã Mê Linh, TP. Hà Nội",
+      "createdAt": "2026-09-14"
+    },
+    {
+      "id": "std-004",
+      "name": "Phạm Tuấn Kiệt",
+      "email": "tuankiet.student@haloi.edu.vn",
+      "role": "student",
+      "status": "active",
+      "grade": "Lớp 4B",
+      "school": "Trường Tiểu học Hạ Lôi – Xã Mê Linh, TP. Hà Nội",
+      "createdAt": "2026-09-15"
+    },
+    {
+      "id": "vis-001",
+      "name": "Ông Trần Đình Hoàng",
+      "email": "dukhach@melinh.edu.vn",
+      "role": "visitor",
+      "status": "active",
+      "isGuest": false,
+      "phoneNumber": "0903456789",
+      "school": "Câu lạc bộ Di sản Văn hóa Thăng Long – Hà Nội",
+      "savedHistory": [
+        "Trạm 1: Nghi môn ngoại – Cổng Tam Quan & Sân Ngũ Phúc",
+        "Trạm 3: Chính điện thờ Hai Bà Trưng (Tam tòa chính diện)",
+        "Trạm 6: Hồ Bán Nguyệt – Không gian cảnh quan di tích"
+      ],
+      "createdAt": "2026-09-16"
+    }
+  ],
+  "passwordsByEmail": {
+    "nguyenquang1992vka@gmail.com": "123456",
+    "admin@melinh.edu.vn": "123456",
+    "lan.teacher@melinh.edu.vn": "123456",
+    "hoanglan.gv@melinh.edu.vn": "123456",
+    "hung.teacher@melinh.edu.vn": "123456",
+    "huong.teacher@haloi.edu.vn": "123456",
+    "duc.teacher@trungvuong.edu.vn": "123456",
+    "minhanh.student@melinh.edu.vn": "123456",
+    "quocbao.student@melinh.edu.vn": "123456",
+    "haphuong.student@melinh.edu.vn": "123456",
+    "tuankiet.student@haloi.edu.vn": "123456",
+    "dukhach@melinh.edu.vn": "123456"
+  },
+  "activeSessions": {},
+  "studentProfiles": {
+    "std-001": {
+      "id": "std-001",
+      "name": "Nguyễn Minh Anh",
+      "grade": "Lớp 4A",
+      "school": "Trường Tiểu học Văn Khê – Xã Mê Linh, TP. Hà Nội",
+      "xp": 260,
+      "level": 2,
+      "levelTitle": "Sứ Giả Mê Linh",
+      "streakDays": 4,
+      "completedPOIs": [
+        "tam-quan",
+        "nha-khach",
+        "chinh-dien"
+      ],
+      "unlockedBadgeIds": [
+        "badge-first-step",
+        "badge-ai-friend"
+      ],
+      "quizScore": 92,
+      "quizzesCompleted": 3,
+      "createdArtworksCount": 1
+    },
+    "std-002": {
+      "id": "std-002",
+      "name": "Trần Quốc Bảo",
+      "grade": "Lớp 4A",
+      "school": "Trường Tiểu học Văn Khê – Xã Mê Linh, TP. Hà Nội",
+      "xp": 310,
+      "level": 3,
+      "levelTitle": "Hiệp Sĩ Trưng Vương",
+      "streakDays": 5,
+      "completedPOIs": [
+        "tam-quan",
+        "nha-khach",
+        "chinh-dien",
+        "den-than-phu",
+        "ho-ban-nguyet"
+      ],
+      "unlockedBadgeIds": [
+        "badge-first-step",
+        "badge-history-scholar"
+      ],
+      "quizScore": 90,
+      "quizzesCompleted": 4,
+      "createdArtworksCount": 1
+    },
+    "std-003": {
+      "id": "std-003",
+      "name": "Lê Hà Phương",
+      "grade": "Lớp 5A",
+      "school": "Trường Tiểu học Văn Khê – Xã Mê Linh, TP. Hà Nội",
+      "xp": 420,
+      "level": 4,
+      "levelTitle": "Đại Sứ Di Sản Mê Linh",
+      "streakDays": 7,
+      "completedPOIs": [
+        "tam-quan",
+        "nha-khach",
+        "chinh-dien",
+        "den-than-phu",
+        "ho-ban-nguyet",
+        "quan-the-le-hoi"
+      ],
+      "unlockedBadgeIds": [
+        "badge-first-step",
+        "badge-map-master",
+        "badge-history-scholar",
+        "badge-grand-heritage"
+      ],
+      "quizScore": 96,
+      "quizzesCompleted": 6,
+      "createdArtworksCount": 2
+    },
+    "std-004": {
+      "id": "std-004",
+      "name": "Phạm Tuấn Kiệt",
+      "grade": "Lớp 4B",
+      "school": "Trường Tiểu học Hạ Lôi – Xã Mê Linh, TP. Hà Nội",
+      "xp": 195,
+      "level": 2,
+      "levelTitle": "Sứ Giả Mê Linh",
+      "streakDays": 3,
+      "completedPOIs": [
+        "tam-quan",
+        "nha-khach",
+        "chinh-dien",
+        "quan-the-le-hoi"
+      ],
+      "unlockedBadgeIds": [
+        "badge-first-step"
+      ],
+      "quizScore": 84,
+      "quizzesCompleted": 2,
+      "createdArtworksCount": 0
+    }
+  },
+  "quizAttempts": [],
+  "platformAnalytics": {
+    "totalVisitors": 14821,
+    "totalStudents": 1265,
+    "totalTeachers": 42,
+    "avgTourDurationSeconds": 1125,
+    "deviceBreakdown": {
+      "Mobile": 8640,
+      "Desktop": 4411,
+      "Tablet": 1770
+    },
+    "dailyAccess": [
+      {
+        "label": "21/09",
+        "visitors": 430,
+        "students": 215,
+        "teachers": 28
+      },
+      {
+        "label": "22/09",
+        "visitors": 465,
+        "students": 228,
+        "teachers": 31
+      },
+      {
+        "label": "23/09",
+        "visitors": 490,
+        "students": 240,
+        "teachers": 29
+      },
+      {
+        "label": "24/09",
+        "visitors": 535,
+        "students": 252,
+        "teachers": 33
+      },
+      {
+        "label": "25/09",
+        "visitors": 590,
+        "students": 268,
+        "teachers": 35
+      },
+      {
+        "label": "26/09",
+        "visitors": 720,
+        "students": 245,
+        "teachers": 32
+      },
+      {
+        "label": "Hôm nay",
+        "visitors": 786,
+        "students": 284,
+        "teachers": 38
+      }
+    ],
+    "monthlyAccess": [
+      {
+        "label": "Tháng 02",
+        "visitors": 3180,
+        "students": 960,
+        "teachers": 36
+      },
+      {
+        "label": "Tháng 03",
+        "visitors": 1890,
+        "students": 1020,
+        "teachers": 35
+      },
+      {
+        "label": "Tháng 04",
+        "visitors": 1420,
+        "students": 1050,
+        "teachers": 37
+      },
+      {
+        "label": "Tháng 05",
+        "visitors": 1280,
+        "students": 1100,
+        "teachers": 38
+      },
+      {
+        "label": "Tháng 06",
+        "visitors": 1150,
+        "students": 840,
+        "teachers": 29
+      },
+      {
+        "label": "Tháng 07",
+        "visitors": 1210,
+        "students": 790,
+        "teachers": 31
+      },
+      {
+        "label": "Tháng 08",
+        "visitors": 1490,
+        "students": 980,
+        "teachers": 39
+      },
+      {
+        "label": "Tháng 09",
+        "visitors": 1961,
+        "students": 1265,
+        "teachers": 42
+      }
+    ],
+    "popularLocations": [
+      {
+        "id": "chinh-dien",
+        "poiId": "chinh-dien",
+        "stationOrder": 3,
+        "stationCode": "TRẠM 03 • TRUNG TÂM THỜ TỰ",
+        "name": "Tam tòa chính diện (Đền chính thờ Hai Bà Trưng)",
+        "title": "Trạm 3: Chính điện thờ Hai Bà Trưng (Tam tòa chính diện)",
+        "category": "Di vật & Thờ phụng",
+        "totalViews": 14880,
+        "visitorViews": 13640,
+        "studentViews": 1240,
+        "avgDurationSeconds": 384,
+        "completionRate": 96
+      },
+      {
+        "id": "tam-quan",
+        "poiId": "tam-quan",
+        "stationOrder": 1,
+        "stationCode": "TRẠM 01 • KIẾN TRÚC NGHI MÔN",
+        "name": "Nghi môn ngoại – Cổng Tam Quan & Sân Ngũ Phúc",
+        "title": "Trạm 1: Nghi môn ngoại – Cổng Tam Quan & Sân Ngũ Phúc",
+        "category": "Kiến trúc",
+        "totalViews": 14375,
+        "visitorViews": 13120,
+        "studentViews": 1255,
+        "avgDurationSeconds": 312,
+        "completionRate": 98
+      },
+      {
+        "id": "ho-ban-nguyet",
+        "poiId": "ho-ban-nguyet",
+        "stationOrder": 6,
+        "stationCode": "TRẠM 06 • CẢNH QUAN PHONG THỦY",
+        "name": "6. Hồ Bán Nguyệt - Không gian cảnh quan di tích",
+        "title": "6. Hồ Bán Nguyệt - Không gian cảnh quan di tích",
+        "category": "Cảnh quan & Lễ hội",
+        "totalViews": 12601,
+        "visitorViews": 11481,
+        "studentViews": 1120,
+        "avgDurationSeconds": 288,
+        "completionRate": 89
+      },
+      {
+        "id": "den-than-phu",
+        "poiId": "den-than-phu",
+        "stationOrder": 4,
+        "stationCode": "TRẠM 04 • ĐẠO LÝ UỐNG NƯỚC NHỚ NGUỒN",
+        "name": "Khu thờ Thân phụ, Thân mẫu Hai Bà Trưng & Thi Sách",
+        "title": "Trạm 4: Khu thờ thân phụ, thân mẫu Hai Bà Trưng & Thi Sách",
+        "category": "Di vật & Thờ phụng",
+        "totalViews": 12055,
+        "visitorViews": 10890,
+        "studentViews": 1165,
+        "avgDurationSeconds": 306,
+        "completionRate": 92
+      },
+      {
+        "id": "quan-the-le-hoi",
+        "poiId": "quan-the-le-hoi",
+        "stationOrder": 5,
+        "stationCode": "TRẠM 05 • KHU THỜ CÁC TƯỚNG LĨNH",
+        "name": "5. Khu thờ các tướng lĩnh Hai Bà Trưng",
+        "title": "5. Khu thờ các tướng lĩnh Hai Bà Trưng",
+        "category": "Danh nhân",
+        "totalViews": 11380,
+        "visitorViews": 10240,
+        "studentViews": 1140,
+        "avgDurationSeconds": 330,
+        "completionRate": 90
+      },
+      {
+        "id": "nha-khach",
+        "poiId": "nha-khach",
+        "stationOrder": 2,
+        "stationCode": "TRẠM 02 • KHÔNG GIAN ĐÓN TIẾP",
+        "name": "Nhà khách và không gian đón tiếp – Nghi môn nội",
+        "title": "Trạm 2: Nhà khách và không gian đón tiếp – Nghi môn nội",
+        "category": "Kiến trúc",
+        "totalViews": 10840,
+        "visitorViews": 9650,
+        "studentViews": 1190,
+        "avgDurationSeconds": 234,
+        "completionRate": 94
+      }
+    ],
+    "visitorSessions": [
+      {
+        "sessionId": "ANON-ML-BEFE",
+        "visitTime": "Hôm nay, 04:30",
+        "tourDurationSeconds": 900,
+        "deviceType": "Desktop",
+        "viewedLocations": [
+          "Trạm 1: Nghi môn Đền",
+          "Trạm 3: Tam tòa chính diện",
+          "6. Hồ Bán Nguyệt - Không gian cảnh quan di tích"
+        ],
+        "completedTour": false,
+        "updatedAtIso": "2026-09-28T04:54:12.649Z"
+      },
+      {
+        "sessionId": "ANON-ML-9A4F",
+        "visitTime": "Hôm nay, 09:42",
+        "tourDurationSeconds": 1280,
+        "deviceType": "Mobile",
+        "viewedLocations": [
+          "Trạm 1: Nghi môn ngoại",
+          "Trạm 3: Tam tòa chính diện",
+          "Trạm 4: Khu thờ thân phụ, thân mẫu",
+          "Trạm 6: Hồ Bán Nguyệt"
+        ],
+        "completedTour": true
+      },
+      {
+        "sessionId": "ANON-ML-3C82",
+        "visitTime": "Hôm nay, 09:18",
+        "tourDurationSeconds": 1540,
+        "deviceType": "Desktop",
+        "viewedLocations": [
+          "Trạm 1: Nghi môn ngoại",
+          "Trạm 2: Nhà khách",
+          "Trạm 3: Tam tòa chính diện",
+          "Trạm 4: Khu thờ thân phụ, thân mẫu",
+          "Trạm 5: Khu thờ các tướng lĩnh",
+          "Trạm 6: Hồ Bán Nguyệt"
+        ],
+        "completedTour": true
+      }
+    ],
+    "studentActivities": [
+      {
+        "id": "std-001",
+        "name": "Nguyễn Minh Anh",
+        "className": "Lớp 4A",
+        "school": "Trường Tiểu học Văn Khê – Xã Mê Linh, TP. Hà Nội",
+        "lessonsViewed": 3,
+        "totalLessons": 6,
+        "viewedStationNames": [
+          "Trạm 1",
+          "Trạm 2",
+          "Trạm 3"
+        ],
+        "quizzesCompleted": 3,
+        "quizAvgScore": 92,
+        "learningProgressPct": 50,
+        "unlockedBadgesCount": 2,
+        "xp": 260,
+        "lastActive": "Đang trực tuyến"
+      },
+      {
+        "id": "std-002",
+        "name": "Trần Quốc Bảo",
+        "className": "Lớp 4A",
+        "school": "Trường Tiểu học Văn Khê – Xã Mê Linh, TP. Hà Nội",
+        "lessonsViewed": 5,
+        "totalLessons": 6,
+        "viewedStationNames": [
+          "Trạm 1",
+          "Trạm 2",
+          "Trạm 3",
+          "Trạm 4",
+          "Trạm 5"
+        ],
+        "quizzesCompleted": 4,
+        "quizAvgScore": 90,
+        "learningProgressPct": 83,
+        "unlockedBadgesCount": 2,
+        "xp": 310,
+        "lastActive": "25 phút trước"
+      },
+      {
+        "id": "std-003",
+        "name": "Lê Hà Phương",
+        "className": "Lớp 5A",
+        "school": "Trường Tiểu học Văn Khê – Xã Mê Linh, TP. Hà Nội",
+        "lessonsViewed": 6,
+        "totalLessons": 6,
+        "viewedStationNames": [
+          "Trạm 1",
+          "Trạm 2",
+          "Trạm 3",
+          "Trạm 4",
+          "Trạm 5",
+          "Trạm 6"
+        ],
+        "quizzesCompleted": 6,
+        "quizAvgScore": 96,
+        "learningProgressPct": 100,
+        "unlockedBadgesCount": 4,
+        "xp": 420,
+        "lastActive": "Hôm nay"
+      },
+      {
+        "id": "std-004",
+        "name": "Phạm Tuấn Kiệt",
+        "className": "Lớp 4B",
+        "school": "Trường Tiểu học Hạ Lôi – Xã Mê Linh, TP. Hà Nội",
+        "lessonsViewed": 4,
+        "totalLessons": 6,
+        "viewedStationNames": [
+          "Trạm 1",
+          "Trạm 2",
+          "Trạm 3",
+          "Trạm 6"
+        ],
+        "quizzesCompleted": 2,
+        "quizAvgScore": 84,
+        "learningProgressPct": 67,
+        "unlockedBadgesCount": 1,
+        "xp": 195,
+        "lastActive": "Hôm nay"
+      }
+    ],
+    "teacherActivities": [
+      {
+        "id": "tch-001",
+        "name": "Cô Nguyễn Thị Lan",
+        "email": "lan.teacher@melinh.edu.vn",
+        "school": "Trường Tiểu học Văn Khê – Xã Mê Linh, TP. Hà Nội",
+        "subject": "Lịch sử & Địa lý (Khối 4)",
+        "createdLessons": 14,
+        "aiLessonPlansGenerated": 46,
+        "studentParticipation": 342,
+        "status": "active"
+      },
+      {
+        "id": "tch-002",
+        "name": "Thầy Trần Văn Hùng",
+        "email": "hung.teacher@melinh.edu.vn",
+        "school": "Trường Tiểu học Văn Khê – Xã Mê Linh, TP. Hà Nội",
+        "subject": "Lịch sử & Địa lý (Khối 5)",
+        "createdLessons": 11,
+        "aiLessonPlansGenerated": 38,
+        "studentParticipation": 318,
+        "status": "active"
+      },
+      {
+        "id": "tch-003",
+        "name": "Cô Phạm Thu Hương",
+        "email": "huong.teacher@haloi.edu.vn",
+        "school": "Trường Tiểu học Hạ Lôi – Xã Mê Linh, TP. Hà Nội",
+        "subject": "Giáo dục Địa phương & Trải nghiệm",
+        "createdLessons": 9,
+        "aiLessonPlansGenerated": 34,
+        "studentParticipation": 295,
+        "status": "active"
+      },
+      {
+        "id": "tch-004",
+        "name": "Thầy Lê Minh Đức",
+        "email": "duc.teacher@trungvuong.edu.vn",
+        "school": "Trường THCS Trưng Vương – Xã Mê Linh, TP. Hà Nội",
+        "subject": "Lịch sử & Địa lý THCS",
+        "createdLessons": 8,
+        "aiLessonPlansGenerated": 30,
+        "studentParticipation": 290,
+        "status": "active"
+      }
+    ]
+  },
+  "aiMetrics": {
+    "totalAiChats": 144,
+    "recentQuestions": [
+      {
+        "question": "Hãy kể thêm cho tớ nghe những điều thú vị về 6. Hồ Bán Nguyệt - Không gian cảnh quan di tích!",
+        "intent": "Trạm 6: Hồ Bán Nguyệt, Hồ Mắt Voi, Thành cổ Mê Linh & Hộp thư Trường Chinh",
+        "timestamp": "04:51"
+      },
+      {
+        "question": "Hãy kể thêm cho tớ nghe những điều thú vị về 6. Hồ Bán Nguyệt - Không gian cảnh quan di tích!",
+        "intent": "Trạm 6: Hồ Bán Nguyệt, Hồ Mắt Voi, Thành cổ Mê Linh & Hộp thư Trường Chinh",
+        "timestamp": "04:51"
+      }
+    ],
+    "latestAiReport": "",
+    "latestAiReportTime": "Vừa đồng bộ Database"
+  },
+  "uploadedFiles": [],
+  "visitorRegistrations": [
+    {
+      "bookingId": "ML-HBT-2026-801",
+      "fullName": "Cô Nguyễn Thị Lan",
+      "phoneNumber": "0912345688",
+      "email": "lan.teacher@melinh.edu.vn",
+      "organization": "Trường Tiểu học Văn Khê – Xã Mê Linh, TP. Hà Nội",
+      "visitDate": "2026-10-05",
+      "preferredTime": "08:00 - 10:00",
+      "adultsCount": 6,
+      "studentsCount": 72,
+      "teachersCount": 4,
+      "totalVisitors": 82,
+      "transportationType": "bus",
+      "specialRequirements": [
+        "tour_guide",
+        "ai_tour",
+        "student_group_support"
+      ],
+      "notes": "Đoàn học sinh Khối 4 học tập lịch sử địa phương và dâng hương tại Chính điện thờ Hai Bà Trưng.",
+      "status": "Approved",
+      "adminNote": "Ban quản lý di tích đã bố trí Thuyết minh viên đón đoàn tại Nghi môn ngoại và Nhà khách.",
+      "assignedGuide": "TMV. Nguyễn Thu Hà (Nhà khách đón tiếp)",
+      "createdAt": "2026-09-25T08:30:00.000Z",
+      "updatedAt": "2026-09-25T09:15:00.000Z"
+    },
+    {
+      "bookingId": "ML-HBT-2026-802",
+      "fullName": "Thầy Lê Minh Đức",
+      "phoneNumber": "0987654321",
+      "email": "duc.teacher@trungvuong.edu.vn",
+      "organization": "Trường THCS Trưng Vương – Xã Mê Linh, TP. Hà Nội",
+      "visitDate": "2026-10-08",
+      "preferredTime": "08:30 - 11:00",
+      "adultsCount": 4,
+      "studentsCount": 95,
+      "teachersCount": 5,
+      "totalVisitors": 104,
+      "transportationType": "bus",
+      "specialRequirements": [
+        "tour_guide",
+        "student_group_support"
+      ],
+      "notes": "Tổ chức chuyên đề ngoại khóa 'Hào khí Mê Linh năm 40 SCN' cho học sinh khối 6.",
+      "status": "Pending",
+      "adminNote": "",
+      "assignedGuide": "Chờ phân công",
+      "createdAt": "2026-09-26T14:20:00.000Z",
+      "updatedAt": "2026-09-26T14:20:00.000Z"
+    },
+    {
+      "bookingId": "ML-HBT-2026-803",
+      "fullName": "Ông Trần Đình Hoàng",
+      "phoneNumber": "0903456789",
+      "email": "hoang.tran@dulichhanoi.vn",
+      "organization": "Câu lạc bộ Di sản Văn hóa Thăng Long – Hà Nội",
+      "visitDate": "2026-10-10",
+      "preferredTime": "09:00 - 11:30",
+      "adultsCount": 24,
+      "studentsCount": 0,
+      "teachersCount": 0,
+      "totalVisitors": 24,
+      "transportationType": "car",
+      "specialRequirements": [
+        "tour_guide",
+        "ai_tour"
+      ],
+      "notes": "Đoàn nghiên cứu kiến trúc cổ Nghi môn ngoại, Sân Ngũ Phúc và 18 cỗ voi đá.",
+      "status": "Completed",
+      "adminNote": "Đoàn đã hoàn thành hành trình tham quan 6 trạm và dâng hương tại Đền Hai Bà Trưng.",
+      "assignedGuide": "TMV. Trần Văn Nam (Nghi môn ngoại)",
+      "createdAt": "2026-09-26T16:45:00.000Z",
+      "updatedAt": "2026-09-26T17:10:00.000Z"
+    },
+    {
+      "bookingId": "ML-HBT-2026-804",
+      "fullName": "Cô Phạm Thu Hương",
+      "phoneNumber": "0978123456",
+      "email": "huong.teacher@haloi.edu.vn",
+      "organization": "Trường Tiểu học Hạ Lôi – Xã Mê Linh, TP. Hà Nội",
+      "visitDate": "2026-10-12",
+      "preferredTime": "14:00 - 16:00",
+      "adultsCount": 5,
+      "studentsCount": 45,
+      "teachersCount": 3,
+      "totalVisitors": 53,
+      "transportationType": "walking",
+      "specialRequirements": [
+        "ai_tour",
+        "student_group_support"
+      ],
+      "notes": "Học sinh thôn Hạ Lôi đi bộ theo hàng sang Đền Hạ Lôi thực hành vẽ tranh di sản.",
+      "status": "Pending",
+      "adminNote": "",
+      "assignedGuide": "Chờ phân công",
+      "createdAt": "2026-09-27T07:50:00.000Z",
+      "updatedAt": "2026-09-27T07:50:00.000Z"
+    }
+  ],
+  "analyticsEvents": [
+    {
+      "eventId": "evt-1790571254370-89pui",
+      "eventType": "logout",
+      "userRole": "visitor",
+      "userName": "Khách tham quan Di sản",
+      "userEmail": "guest@melinh-heritage.vn",
+      "deviceType": "Desktop",
+      "contentUsed": "Đăng xuất khỏi hệ thống (Du khách)",
+      "durationSeconds": 901,
+      "createdAt": "2026-09-28T04:54:14.370Z"
+    },
+    {
+      "eventId": "evt-1790571088869-buxol",
+      "eventType": "use_ai",
+      "userRole": "visitor",
+      "userName": "Người dùng Tương tác AI",
+      "userEmail": "ai-user@melinh-heritage.vn",
+      "deviceType": "Desktop",
+      "contentUsed": "Hỏi đáp Cô Mê Linh AI (Trạm 6: Hồ Bán Nguyệt, Hồ Mắt Voi, Thành cổ Mê Linh & Hộp thư Trường Chinh): \"Hãy kể thêm cho tớ nghe những điều thú vị về 6. Hồ Bán Nguyệt - Không gian cảnh quan di tích\"",
+      "durationSeconds": 45,
+      "createdAt": "2026-09-28T04:51:28.869Z"
+    },
+    {
+      "eventId": "evt-1790571088612-z3ew9",
+      "eventType": "use_ai",
+      "userRole": "visitor",
+      "userName": "Người dùng Tương tác AI",
+      "userEmail": "ai-user@melinh-heritage.vn",
+      "deviceType": "Desktop",
+      "contentUsed": "Hỏi đáp Cô Mê Linh AI (Trạm 6: Hồ Bán Nguyệt, Hồ Mắt Voi, Thành cổ Mê Linh & Hộp thư Trường Chinh): \"Hãy kể thêm cho tớ nghe những điều thú vị về 6. Hồ Bán Nguyệt - Không gian cảnh quan di tích\"",
+      "durationSeconds": 45,
+      "createdAt": "2026-09-28T04:51:28.612Z"
+    },
+    {
+      "eventId": "evt-1790571081663-3xkk6",
+      "eventType": "use_ai",
+      "userRole": "visitor",
+      "userName": "Khách tham quan Di sản",
+      "userEmail": "guest@melinh-heritage.vn",
+      "deviceType": "Desktop",
+      "contentUsed": "Trợ lý Di sản Cô Mê Linh AI",
+      "durationSeconds": 728,
+      "createdAt": "2026-09-28T04:51:21.663Z"
+    },
+    {
+      "eventId": "evt-1790571053634-kov65",
+      "eventType": "access_feature",
+      "userRole": "visitor",
+      "userName": "Khách tham quan Di sản",
+      "userEmail": "guest@melinh-heritage.vn",
+      "deviceType": "Desktop",
+      "contentUsed": "Khám phá 6 Trạm Di tích Đền Hai Bà Trưng",
+      "durationSeconds": 701,
+      "createdAt": "2026-09-28T04:50:53.633Z"
+    },
+    {
+      "eventId": "evt-1790571051661-oztqg",
+      "eventType": "access_feature",
+      "userRole": "visitor",
+      "userName": "Khách tham quan Di sản",
+      "userEmail": "guest@melinh-heritage.vn",
+      "deviceType": "Desktop",
+      "contentUsed": "Cổng Đăng ký Đoàn Tham quan Trực tuyến",
+      "durationSeconds": 699,
+      "createdAt": "2026-09-28T04:50:51.661Z"
+    },
+    {
+      "eventId": "evt-1790571049929-y28tx",
+      "eventType": "tour_360",
+      "userRole": "visitor",
+      "userName": "Khách tham quan Di sản",
+      "userEmail": "guest@melinh-heritage.vn",
+      "deviceType": "Desktop",
+      "contentUsed": "Bản đồ Số 360° Quần thể Đền Hai Bà Trưng",
+      "durationSeconds": 697,
+      "createdAt": "2026-09-28T04:50:49.929Z"
+    },
+    {
+      "eventId": "evt-1790569871662-jjlhc",
+      "eventType": "access_feature",
+      "userRole": "visitor",
+      "userName": "Khách tham quan Di sản",
+      "userEmail": "guest@melinh-heritage.vn",
+      "deviceType": "Desktop",
+      "contentUsed": "Bảo tàng Số 3D Hiện vật",
+      "durationSeconds": 61,
+      "createdAt": "2026-09-28T04:31:11.662Z"
+    },
+    {
+      "eventId": "evt-1790569849683-1bflg",
+      "eventType": "access_feature",
+      "userRole": "visitor",
+      "userName": "Khách tham quan Di sản",
+      "userEmail": "guest@melinh-heritage.vn",
+      "deviceType": "Desktop",
+      "contentUsed": "Lễ hội Đền Hai Bà Trưng (Mùng 6 Tháng Giêng)",
+      "durationSeconds": 39,
+      "createdAt": "2026-09-28T04:30:49.683Z"
+    },
+    {
+      "eventId": "evt-1790569822575-x4k9a",
+      "eventType": "access_feature",
+      "userRole": "visitor",
+      "userName": "Khách tham quan Di sản",
+      "userEmail": "guest@melinh-heritage.vn",
+      "deviceType": "Desktop",
+      "contentUsed": "Khám phá 6 Trạm Di tích Đền Hai Bà Trưng",
+      "durationSeconds": 25,
+      "createdAt": "2026-09-28T04:30:22.575Z"
+    }
+  ],
+  "emailReports": [],
+  "loginCountsByRole": {
+    "student": 0,
+    "teacher": 0,
+    "visitor": 0,
+    "admin": 0
+  },
+  "tours360Count": 1,
+  "visitorAiUsesCount": 3,
+  "scheduleState": {
+    "dailyReportTime": "18:00",
+    "weeklyReportDay": "Chủ Nhật (18:00)",
+    "lastDailySentDate": "",
+    "lastWeeklySentWeek": "",
+    "lastDailyReportSentAt": "Chưa gửi hôm nay (Tự động lúc 18:00)",
+    "lastWeeklyReportSentAt": "Chưa gửi tuần này",
+    "autoRealtimeAlertsEnabled": true
+  }
+}

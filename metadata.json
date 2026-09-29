@@ -1,0 +1,6 @@
+{
+  "name": "Mê Linh Smart Heritage",
+  "description": "Hệ sinh thái học tập số di sản tích hợp trí tuệ nhân tạo – Khám phá Đền Hai Bà Trưng Mê Linh",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

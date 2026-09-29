@@ -1,0 +1,346 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // 1. Global Safety Net (Default Deny)
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // 2. Hardened Global Primitives
+    function isValidId(id) {
+      return id is string && id.size() >= 1 && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    function isSignedIn() {
+      return request.auth != null && request.auth.token.email_verified == true;
+    }
+
+    function isAdmin() {
+      return isSignedIn() && request.auth.token.email == 'nguyenquang1992vka@gmail.com';
+    }
+
+    // 3. Entity Validation Blueprints
+    function isValidUserAccount(data) {
+      return data.keys().hasAll(['uid', 'name', 'email', 'role', 'status', 'school', 'createdAt', 'updatedAt']) &&
+        data.keys().hasOnly(['uid', 'name', 'email', 'role', 'status', 'school', 'grade', 'createdAt', 'updatedAt']) &&
+        data.uid is string && data.uid.size() >= 1 && data.uid.size() <= 128 && data.uid.matches('^[a-zA-Z0-9_\\-]+$') &&
+        data.name is string && data.name.size() >= 1 && data.name.size() <= 120 &&
+        data.email is string && data.email.size() >= 3 && data.email.size() <= 150 &&
+        data.role is string && (data.role == 'student' || data.role == 'teacher' || data.role == 'visitor' || data.role == 'admin') &&
+        data.status is string && (data.status == 'active' || data.status == 'pending' || data.status == 'suspended') &&
+        data.school is string && data.school.size() >= 1 && data.school.size() <= 200 &&
+        (!('grade' in data) || (data.grade is string && data.grade.size() >= 1 && data.grade.size() <= 100)) &&
+        data.createdAt is timestamp &&
+        data.updatedAt is timestamp;
+    }
+
+    function isValidStudentProgress(data) {
+      return data.keys().hasAll([
+          'studentId', 'name', 'grade', 'school', 'xp', 'level', 'levelTitle',
+          'completedPOIs', 'unlockedBadgeIds', 'quizzesCompleted', 'quizAvgScore',
+          'createdArtworksCount', 'updatedAt'
+        ]) &&
+        data.keys().hasOnly([
+          'studentId', 'name', 'grade', 'school', 'xp', 'level', 'levelTitle',
+          'completedPOIs', 'unlockedBadgeIds', 'quizzesCompleted', 'quizAvgScore',
+          'createdArtworksCount', 'updatedAt'
+        ]) &&
+        data.studentId is string && data.studentId.size() >= 1 && data.studentId.size() <= 128 && data.studentId.matches('^[a-zA-Z0-9_\\-]+$') &&
+        data.name is string && data.name.size() >= 1 && data.name.size() <= 120 &&
+        data.grade is string && data.grade.size() >= 1 && data.grade.size() <= 50 &&
+        data.school is string && data.school.size() >= 1 && data.school.size() <= 200 &&
+        data.xp is int && data.xp >= 0 && data.xp <= 1000000 &&
+        data.level is int && data.level >= 1 && data.level <= 100 &&
+        data.levelTitle is string && data.levelTitle.size() >= 1 && data.levelTitle.size() <= 100 &&
+        data.completedPOIs is list && data.completedPOIs.size() <= 10 &&
+        (data.completedPOIs.size() == 0 || (data.completedPOIs[0] is string && data.completedPOIs[0].size() <= 64)) &&
+        data.unlockedBadgeIds is list && data.unlockedBadgeIds.size() <= 20 &&
+        (data.unlockedBadgeIds.size() == 0 || (data.unlockedBadgeIds[0] is string && data.unlockedBadgeIds[0].size() <= 64)) &&
+        data.quizzesCompleted is int && data.quizzesCompleted >= 0 && data.quizzesCompleted <= 10000 &&
+        data.quizAvgScore is number && data.quizAvgScore >= 0 && data.quizAvgScore <= 100 &&
+        data.createdArtworksCount is int && data.createdArtworksCount >= 0 && data.createdArtworksCount <= 10000 &&
+        data.updatedAt is timestamp;
+    }
+
+    function isValidQuizAttempt(data) {
+      return data.keys().hasAll([
+          'studentId', 'studentName', 'grade', 'score', 'xpEarned',
+          'totalQuestions', 'correctAnswers', 'createdAt'
+        ]) &&
+        data.keys().hasOnly([
+          'studentId', 'studentName', 'grade', 'score', 'xpEarned',
+          'totalQuestions', 'correctAnswers', 'createdAt'
+        ]) &&
+        data.studentId is string && data.studentId.size() >= 1 && data.studentId.size() <= 128 && data.studentId.matches('^[a-zA-Z0-9_\\-]+$') &&
+        data.studentName is string && data.studentName.size() >= 1 && data.studentName.size() <= 120 &&
+        data.grade is string && data.grade.size() >= 1 && data.grade.size() <= 50 &&
+        data.score is number && data.score >= 0 && data.score <= 100 &&
+        data.xpEarned is int && data.xpEarned >= 0 && data.xpEarned <= 1000 &&
+        data.totalQuestions is int && data.totalQuestions >= 1 && data.totalQuestions <= 100 &&
+        data.correctAnswers is int && data.correctAnswers >= 0 && data.correctAnswers <= data.totalQuestions &&
+        data.createdAt is timestamp;
+    }
+
+    function isValidVisitorSession(data) {
+      return data.keys().hasAll([
+          'sessionId', 'visitTime', 'tourDurationSeconds', 'deviceType',
+          'viewedLocations', 'completedTour', 'createdAt', 'updatedAt'
+        ]) &&
+        data.keys().hasOnly([
+          'sessionId', 'visitTime', 'tourDurationSeconds', 'deviceType',
+          'viewedLocations', 'completedTour', 'createdAt', 'updatedAt'
+        ]) &&
+        data.sessionId is string && data.sessionId.size() >= 1 && data.sessionId.size() <= 64 && data.sessionId.matches('^[a-zA-Z0-9_\\-]+$') &&
+        data.visitTime is string && data.visitTime.size() >= 1 && data.visitTime.size() <= 80 &&
+        data.tourDurationSeconds is int && data.tourDurationSeconds >= 0 && data.tourDurationSeconds <= 86400 &&
+        data.deviceType is string && (data.deviceType == 'Desktop' || data.deviceType == 'Mobile' || data.deviceType == 'Tablet') &&
+        data.viewedLocations is list && data.viewedLocations.size() <= 10 &&
+        (data.viewedLocations.size() == 0 || (data.viewedLocations[0] is string && data.viewedLocations[0].size() <= 120)) &&
+        data.completedTour is bool &&
+        data.createdAt is timestamp &&
+        data.updatedAt is timestamp;
+    }
+
+    function isValidAnalyticsEvent(data) {
+      return data.keys().hasAll([
+          'eventId', 'eventType', 'userRole', 'userName', 'userEmail',
+          'deviceType', 'contentUsed', 'durationSeconds', 'createdAt'
+        ]) &&
+        data.keys().hasOnly([
+          'eventId', 'eventType', 'userRole', 'userName', 'userEmail',
+          'deviceType', 'contentUsed', 'durationSeconds', 'createdAt'
+        ]) &&
+        data.eventId is string && data.eventId.size() >= 1 && data.eventId.size() <= 128 && data.eventId.matches('^[a-zA-Z0-9_\\-]+$') &&
+        data.eventType is string && (
+          data.eventType == 'register_account' ||
+          data.eventType == 'login' ||
+          data.eventType == 'logout' ||
+          data.eventType == 'access_feature' ||
+          data.eventType == 'view_content' ||
+          data.eventType == 'tour_360' ||
+          data.eventType == 'use_ai' ||
+          data.eventType == 'complete_quiz' ||
+          data.eventType == 'book_visit'
+        ) &&
+        data.userRole is string && (
+          data.userRole == 'student' ||
+          data.userRole == 'teacher' ||
+          data.userRole == 'visitor' ||
+          data.userRole == 'admin'
+        ) &&
+        data.userName is string && data.userName.size() >= 1 && data.userName.size() <= 120 &&
+        data.userEmail is string && data.userEmail.size() >= 1 && data.userEmail.size() <= 150 &&
+        data.deviceType is string && (
+          data.deviceType == 'Desktop' ||
+          data.deviceType == 'Mobile' ||
+          data.deviceType == 'Tablet'
+        ) &&
+        data.contentUsed is string && data.contentUsed.size() >= 1 && data.contentUsed.size() <= 300 &&
+        data.durationSeconds is int && data.durationSeconds >= 0 && data.durationSeconds <= 86400 &&
+        data.createdAt is timestamp;
+    }
+
+    function isValidEmailReport(data) {
+      return data.keys().hasAll([
+          'reportId', 'reportType', 'recipientEmail', 'subject',
+          'bodyText', 'deliveryStatus', 'createdAt'
+        ]) &&
+        data.keys().hasOnly([
+          'reportId', 'reportType', 'recipientEmail', 'subject',
+          'bodyText', 'deliveryStatus', 'createdAt'
+        ]) &&
+        data.reportId is string && data.reportId.size() >= 1 && data.reportId.size() <= 128 && data.reportId.matches('^[a-zA-Z0-9_\\-]+$') &&
+        data.reportType is string && (
+          data.reportType == 'REALTIME_ALERT' ||
+          data.reportType == 'DAILY_REPORT' ||
+          data.reportType == 'WEEKLY_REPORT'
+        ) &&
+        data.recipientEmail is string && data.recipientEmail == 'nguyenquang1992vka@gmail.com' &&
+        data.subject is string && data.subject.size() >= 1 && data.subject.size() <= 200 &&
+        data.bodyText is string && data.bodyText.size() >= 1 && data.bodyText.size() <= 5000 &&
+        data.deliveryStatus is string && (
+          data.deliveryStatus == 'sent' ||
+          data.deliveryStatus == 'queued' ||
+          data.deliveryStatus == 'delivered'
+        ) &&
+        data.createdAt is timestamp;
+    }
+
+    function isValidVisitorBooking(data) {
+      return data.keys().hasAll([
+          'bookingId', 'organization', 'registrantName', 'phoneNumber',
+          'visitDate', 'totalVisitors', 'transportation', 'status', 'createdAt'
+        ]) &&
+        data.keys().hasOnly([
+          'bookingId', 'organization', 'registrantName', 'phoneNumber',
+          'visitDate', 'totalVisitors', 'transportation', 'status', 'createdAt'
+        ]) &&
+        data.bookingId is string && data.bookingId.size() >= 1 && data.bookingId.size() <= 128 && data.bookingId.matches('^[a-zA-Z0-9_\\-]+$') &&
+        data.organization is string && data.organization.size() >= 1 && data.organization.size() <= 200 &&
+        data.registrantName is string && data.registrantName.size() >= 1 && data.registrantName.size() <= 120 &&
+        data.phoneNumber is string && data.phoneNumber.size() >= 1 && data.phoneNumber.size() <= 30 &&
+        data.visitDate is string && data.visitDate.size() >= 1 && data.visitDate.size() <= 40 &&
+        data.totalVisitors is int && data.totalVisitors >= 1 && data.totalVisitors <= 5000 &&
+        data.transportation is string && (
+          data.transportation == 'bus' ||
+          data.transportation == 'car' ||
+          data.transportation == 'motorcycle' ||
+          data.transportation == 'walking'
+        ) &&
+        data.status is string && (
+          data.status == 'Pending' ||
+          data.status == 'Approved' ||
+          data.status == 'Rejected' ||
+          data.status == 'Completed'
+        ) &&
+        data.createdAt is timestamp;
+    }
+
+    // Admins Registry Collection
+    match /admins/{adminId} {
+      allow get: if isSignedIn() && isValidId(adminId) && (request.auth.uid == adminId || isAdmin());
+      allow list: if isAdmin();
+      allow create, update, delete: if false;
+    }
+
+    // Users Collection (PII Isolated to Owner or Admin)
+    match /users/{userId} {
+      allow get: if isSignedIn() && isValidId(userId) && (request.auth.uid == userId || isAdmin());
+      allow list: if isSignedIn() && (resource.data.uid == request.auth.uid || isAdmin());
+      allow create: if isSignedIn() && isValidId(userId) && isValidUserAccount(incoming()) &&
+        incoming().uid == request.auth.uid &&
+        userId == request.auth.uid &&
+        incoming().createdAt == request.time &&
+        incoming().updatedAt == request.time &&
+        (
+          isAdmin() ||
+          (incoming().role == 'student' && incoming().status == 'active') ||
+          (incoming().role == 'visitor' && incoming().status == 'active') ||
+          (incoming().role == 'teacher' && (incoming().status == 'pending' || incoming().status == 'active'))
+        );
+      allow update: if isSignedIn() && isValidId(userId) && isValidUserAccount(incoming()) &&
+        incoming().uid == existing().uid &&
+        incoming().email == existing().email &&
+        incoming().createdAt == existing().createdAt &&
+        incoming().updatedAt == request.time &&
+        (
+          isAdmin() ||
+          (
+            request.auth.uid == userId &&
+            existing().status != 'suspended' &&
+            incoming().role == existing().role &&
+            incoming().status == existing().status &&
+            incoming().diff(existing()).affectedKeys().hasOnly(['name', 'school', 'grade', 'updatedAt'])
+          )
+        );
+      allow delete: if isAdmin() && isValidId(userId);
+    }
+
+    // Student Progress Collection
+    match /studentProgress/{studentId} {
+      allow get: if isSignedIn() && isValidId(studentId) && (request.auth.uid == studentId || isAdmin());
+      allow list: if isSignedIn() && (resource.data.studentId == request.auth.uid || isAdmin());
+      allow create: if isSignedIn() && isValidId(studentId) && isValidStudentProgress(incoming()) &&
+        studentId == request.auth.uid &&
+        incoming().studentId == request.auth.uid &&
+        incoming().updatedAt == request.time &&
+        exists(/databases/$(database)/documents/users/$(request.auth.uid));
+      allow update: if isSignedIn() && isValidId(studentId) && isValidStudentProgress(incoming()) &&
+        incoming().studentId == existing().studentId &&
+        incoming().updatedAt == request.time &&
+        (
+          isAdmin() ||
+          (
+            request.auth.uid == studentId &&
+            incoming().diff(existing()).affectedKeys().hasOnly([
+              'name', 'grade', 'school', 'xp', 'level', 'levelTitle',
+              'completedPOIs', 'unlockedBadgeIds', 'quizzesCompleted',
+              'quizAvgScore', 'createdArtworksCount', 'updatedAt'
+            ])
+          )
+        );
+      allow delete: if isAdmin() && isValidId(studentId);
+    }
+
+    // Quiz Attempts Collection
+    match /quizAttempts/{attemptId} {
+      allow get: if isSignedIn() && isValidId(attemptId) && (resource.data.studentId == request.auth.uid || isAdmin());
+      allow list: if isSignedIn() && (resource.data.studentId == request.auth.uid || isAdmin());
+      allow create: if isSignedIn() && isValidId(attemptId) && isValidQuizAttempt(incoming()) &&
+        incoming().studentId == request.auth.uid &&
+        incoming().createdAt == request.time &&
+        exists(/databases/$(database)/documents/users/$(request.auth.uid));
+      allow update: if false;
+      allow delete: if isAdmin() && isValidId(attemptId);
+    }
+
+    // Visitor Sessions Collection
+    match /visitorSessions/{sessionId} {
+      allow get: if isSignedIn() && isValidId(sessionId) && isAdmin();
+      allow list: if isSignedIn() && isAdmin();
+      allow create: if isSignedIn() && isValidId(sessionId) && isValidVisitorSession(incoming()) &&
+        incoming().sessionId == sessionId &&
+        incoming().createdAt == request.time &&
+        incoming().updatedAt == request.time;
+      allow update: if isSignedIn() && isValidId(sessionId) && isValidVisitorSession(incoming()) &&
+        incoming().sessionId == existing().sessionId &&
+        incoming().createdAt == existing().createdAt &&
+        incoming().updatedAt == request.time &&
+        (
+          isAdmin() ||
+          (
+            existing().completedTour == false &&
+            incoming().diff(existing()).affectedKeys().hasOnly([
+              'tourDurationSeconds', 'viewedLocations', 'completedTour', 'updatedAt'
+            ])
+          )
+        );
+      allow delete: if isAdmin() && isValidId(sessionId);
+    }
+
+    // Analytics Events Collection (Automatic User Tracking)
+    match /analyticsEvents/{eventId} {
+      allow get: if isSignedIn() && isValidId(eventId) && isAdmin();
+      allow list: if isSignedIn() && isAdmin();
+      allow create: if isSignedIn() && isValidId(eventId) && isValidAnalyticsEvent(incoming()) &&
+        incoming().eventId == eventId &&
+        incoming().createdAt == request.time;
+      allow update: if false;
+      allow delete: if isAdmin() && isValidId(eventId);
+    }
+
+    // Email Reports Collection (Automatic Reports to nguyenquang1992vka@gmail.com)
+    match /emailReports/{reportId} {
+      allow get: if isSignedIn() && isValidId(reportId) && isAdmin();
+      allow list: if isSignedIn() && isAdmin();
+      allow create: if isSignedIn() && isValidId(reportId) && isValidEmailReport(incoming()) &&
+        incoming().reportId == reportId &&
+        incoming().createdAt == request.time &&
+        isAdmin();
+      allow update: if false;
+      allow delete: if isAdmin() && isValidId(reportId);
+    }
+
+    // Visitor Bookings Collection (VISITOR_BOOKING)
+    match /visitorBookings/{bookingId} {
+      allow get: if isSignedIn() && isValidId(bookingId) && isAdmin();
+      allow list: if isSignedIn() && isAdmin();
+      allow create: if isSignedIn() && isValidId(bookingId) && isValidVisitorBooking(incoming()) &&
+        incoming().bookingId == bookingId &&
+        incoming().createdAt == request.time;
+      allow update: if isSignedIn() && isValidId(bookingId) && isValidVisitorBooking(incoming()) &&
+        incoming().bookingId == existing().bookingId &&
+        incoming().createdAt == existing().createdAt &&
+        isAdmin();
+      allow delete: if isAdmin() && isValidId(bookingId);
+    }
+  }
+}

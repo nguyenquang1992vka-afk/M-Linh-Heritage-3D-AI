@@ -1,0 +1,496 @@
+{
+  "entities": {
+    "UserAccount": {
+      "title": "UserAccount",
+      "description": "Tài khoản người dùng trong hệ thống Mê Linh Smart Heritage AI (Học sinh, Giáo viên, Quản trị viên)",
+      "type": "object",
+      "properties": {
+        "uid": {
+          "type": "string",
+          "description": "UID của người dùng",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "name": {
+          "type": "string",
+          "description": "Họ và tên người dùng",
+          "minLength": 1,
+          "maxLength": 120
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "Địa chỉ email đăng nhập",
+          "minLength": 3,
+          "maxLength": 150
+        },
+        "role": {
+          "type": "string",
+          "description": "Vai trò hệ thống",
+          "enum": ["student", "teacher", "visitor", "admin"]
+        },
+        "status": {
+          "type": "string",
+          "description": "Trạng thái tài khoản",
+          "enum": ["active", "pending", "suspended"]
+        },
+        "school": {
+          "type": "string",
+          "description": "Trường học tại xã Mê Linh",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "grade": {
+          "type": "string",
+          "description": "Khối/Lớp học hoặc môn giảng dạy",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Thời điểm tạo tài khoản"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Thời điểm cập nhật gần nhất"
+        }
+      },
+      "required": ["uid", "name", "email", "role", "status", "school", "createdAt", "updatedAt"]
+    },
+    "StudentProgress": {
+      "title": "StudentProgress",
+      "description": "Tiến trình học tập, điểm số XP, kết quả Quiz và huy hiệu của Học sinh",
+      "type": "object",
+      "properties": {
+        "studentId": {
+          "type": "string",
+          "description": "UID của học sinh sở hữu hồ sơ học tập",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "name": {
+          "type": "string",
+          "description": "Họ và tên học sinh",
+          "minLength": 1,
+          "maxLength": 120
+        },
+        "grade": {
+          "type": "string",
+          "description": "Lớp học của học sinh",
+          "minLength": 1,
+          "maxLength": 50
+        },
+        "school": {
+          "type": "string",
+          "description": "Trường học của học sinh",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "xp": {
+          "type": "number",
+          "description": "Tổng điểm kinh nghiệm tích lũy"
+        },
+        "level": {
+          "type": "number",
+          "description": "Cấp độ danh hiệu hiện tại"
+        },
+        "levelTitle": {
+          "type": "string",
+          "description": "Danh hiệu di sản hiện tại",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "completedPOIs": {
+          "type": "array",
+          "description": "Danh sách ID các trạm di tích đã hoàn thành (tối đa 10 trạm)"
+        },
+        "unlockedBadgeIds": {
+          "type": "array",
+          "description": "Danh sách ID huy hiệu đã mở khóa (tối đa 20 huy hiệu)"
+        },
+        "quizzesCompleted": {
+          "type": "number",
+          "description": "Số bài trắc nghiệm đã hoàn thành"
+        },
+        "quizAvgScore": {
+          "type": "number",
+          "description": "Điểm trung bình các bài kiểm tra (0 - 100)"
+        },
+        "createdArtworksCount": {
+          "type": "number",
+          "description": "Số tác phẩm sáng tạo đã lưu"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Thời gian cập nhật tiến độ"
+        }
+      },
+      "required": [
+        "studentId",
+        "name",
+        "grade",
+        "school",
+        "xp",
+        "level",
+        "levelTitle",
+        "completedPOIs",
+        "unlockedBadgeIds",
+        "quizzesCompleted",
+        "quizAvgScore",
+        "createdArtworksCount",
+        "updatedAt"
+      ]
+    },
+    "QuizAttempt": {
+      "title": "QuizAttempt",
+      "description": "Bản ghi kết quả bài kiểm tra trắc nghiệm di sản của học sinh",
+      "type": "object",
+      "properties": {
+        "studentId": {
+          "type": "string",
+          "description": "UID của học sinh làm bài",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "studentName": {
+          "type": "string",
+          "description": "Họ tên học sinh",
+          "minLength": 1,
+          "maxLength": 120
+        },
+        "grade": {
+          "type": "string",
+          "description": "Lớp học",
+          "minLength": 1,
+          "maxLength": 50
+        },
+        "score": {
+          "type": "number",
+          "description": "Điểm số đạt được trên thang 100"
+        },
+        "xpEarned": {
+          "type": "number",
+          "description": "Số điểm XP nhận được"
+        },
+        "totalQuestions": {
+          "type": "number",
+          "description": "Tổng số câu hỏi trong đề"
+        },
+        "correctAnswers": {
+          "type": "number",
+          "description": "Số câu trả lời đúng"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Thời điểm nộp bài"
+        }
+      },
+      "required": [
+        "studentId",
+        "studentName",
+        "grade",
+        "score",
+        "xpEarned",
+        "totalQuestions",
+        "correctAnswers",
+        "createdAt"
+      ]
+    },
+    "VisitorSession": {
+      "title": "VisitorSession",
+      "description": "Phiên tham quan ẩn danh của du khách tại Cổng Du khách",
+      "type": "object",
+      "properties": {
+        "sessionId": {
+          "type": "string",
+          "description": "Mã phiên tham quan ẩn danh",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "visitTime": {
+          "type": "string",
+          "description": "Thời điểm truy cập hiển thị",
+          "minLength": 1,
+          "maxLength": 80
+        },
+        "tourDurationSeconds": {
+          "type": "number",
+          "description": "Thời lượng tham quan tính bằng giây"
+        },
+        "deviceType": {
+          "type": "string",
+          "description": "Loại thiết bị truy cập",
+          "enum": ["Desktop", "Mobile", "Tablet"]
+        },
+        "viewedLocations": {
+          "type": "array",
+          "description": "Danh sách các trạm di tích đã tham quan (tối đa 10 trạm)"
+        },
+        "completedTour": {
+          "type": "boolean",
+          "description": "Đã hoàn thành tối thiểu 4/6 trạm hay chưa"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Thời điểm khởi tạo phiên"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Thời điểm cập nhật phiên"
+        }
+      },
+      "required": [
+        "sessionId",
+        "visitTime",
+        "tourDurationSeconds",
+        "deviceType",
+        "viewedLocations",
+        "completedTour",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "AnalyticsEvent": {
+      "title": "AnalyticsEvent",
+      "description": "Sự kiện theo dõi hoạt động người dùng tự động (đăng ký, đăng nhập, đăng xuất, xem nội dung, tham quan 360°, AI, quiz, đặt lịch)",
+      "type": "object",
+      "properties": {
+        "eventId": {
+          "type": "string",
+          "description": "Mã định danh sự kiện",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "eventType": {
+          "type": "string",
+          "description": "Loại hành động của người dùng",
+          "enum": [
+            "register_account",
+            "login",
+            "logout",
+            "access_feature",
+            "view_content",
+            "tour_360",
+            "use_ai",
+            "complete_quiz",
+            "book_visit"
+          ]
+        },
+        "userRole": {
+          "type": "string",
+          "description": "Loại người dùng",
+          "enum": ["student", "teacher", "visitor", "admin"]
+        },
+        "userName": {
+          "type": "string",
+          "description": "Tên người dùng hoặc tài khoản",
+          "minLength": 1,
+          "maxLength": 120
+        },
+        "userEmail": {
+          "type": "string",
+          "description": "Email tài khoản hoặc phiên khách",
+          "minLength": 1,
+          "maxLength": 150
+        },
+        "deviceType": {
+          "type": "string",
+          "description": "Thiết bị truy cập",
+          "enum": ["Desktop", "Mobile", "Tablet"]
+        },
+        "contentUsed": {
+          "type": "string",
+          "description": "Nội dung hoặc chức năng đã sử dụng",
+          "minLength": 1,
+          "maxLength": 300
+        },
+        "durationSeconds": {
+          "type": "number",
+          "description": "Thời lượng hoạt động tính bằng giây"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Thời gian ghi nhận sự kiện"
+        }
+      },
+      "required": [
+        "eventId",
+        "eventType",
+        "userRole",
+        "userName",
+        "userEmail",
+        "deviceType",
+        "contentUsed",
+        "durationSeconds",
+        "createdAt"
+      ]
+    },
+    "EmailReport": {
+      "title": "EmailReport",
+      "description": "Bản ghi báo cáo email tự động gửi về quản trị viên nguyenquang1992vka@gmail.com",
+      "type": "object",
+      "properties": {
+        "reportId": {
+          "type": "string",
+          "description": "Mã báo cáo email",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "reportType": {
+          "type": "string",
+          "description": "Loại báo cáo email",
+          "enum": ["REALTIME_ALERT", "DAILY_REPORT", "WEEKLY_REPORT"]
+        },
+        "recipientEmail": {
+          "type": "string",
+          "format": "email",
+          "description": "Email quản trị nhận báo cáo",
+          "minLength": 3,
+          "maxLength": 150
+        },
+        "subject": {
+          "type": "string",
+          "description": "Tiêu đề email báo cáo",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "bodyText": {
+          "type": "string",
+          "description": "Nội dung báo cáo",
+          "minLength": 1,
+          "maxLength": 5000
+        },
+        "deliveryStatus": {
+          "type": "string",
+          "description": "Trạng thái gửi email",
+          "enum": ["sent", "queued", "delivered"]
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Thời điểm gửi báo cáo"
+        }
+      },
+      "required": [
+        "reportId",
+        "reportType",
+        "recipientEmail",
+        "subject",
+        "bodyText",
+        "deliveryStatus",
+        "createdAt"
+      ]
+    },
+    "VisitorBooking": {
+      "title": "VisitorBooking",
+      "description": "Đăng ký tham quan đoàn du khách tại Đền Hai Bà Trưng - Mê Linh (VISITOR_BOOKING)",
+      "type": "object",
+      "properties": {
+        "bookingId": {
+          "type": "string",
+          "description": "Mã đặt lịch đoàn tham quan",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "organization": {
+          "type": "string",
+          "description": "Tên đoàn tham quan",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "registrantName": {
+          "type": "string",
+          "description": "Người phụ trách",
+          "minLength": 1,
+          "maxLength": 120
+        },
+        "phoneNumber": {
+          "type": "string",
+          "description": "Số điện thoại liên hệ",
+          "minLength": 1,
+          "maxLength": 30
+        },
+        "visitDate": {
+          "type": "string",
+          "description": "Ngày tham quan (YYYY-MM-DD)",
+          "minLength": 1,
+          "maxLength": 40
+        },
+        "totalVisitors": {
+          "type": "number",
+          "description": "Số lượng khách tham quan"
+        },
+        "transportation": {
+          "type": "string",
+          "description": "Phương tiện di chuyển (Xe khách, Ô tô, Xe máy, Khác)",
+          "enum": ["bus", "car", "motorcycle", "walking"]
+        },
+        "status": {
+          "type": "string",
+          "description": "Trạng thái duyệt hồ sơ",
+          "enum": ["Pending", "Approved", "Rejected", "Completed"]
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Thời gian tạo đăng ký"
+        }
+      },
+      "required": [
+        "bookingId",
+        "organization",
+        "registrantName",
+        "phoneNumber",
+        "visitDate",
+        "totalVisitors",
+        "transportation",
+        "status",
+        "createdAt"
+      ]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserAccount",
+      "description": "USERS: Lưu trữ thông tin tài khoản Học sinh, Giáo viên, Du khách, Quản trị viên"
+    },
+    "/studentProgress/{studentId}": {
+      "schema": "StudentProgress",
+      "description": "STUDENT_PROGRESS: Lưu trữ tiến trình học tập, bài đã học, điểm quiz, XP, huy hiệu và % hoàn thành"
+    },
+    "/visitorBookings/{bookingId}": {
+      "schema": "VisitorBooking",
+      "description": "VISITOR_BOOKING: Lưu trữ thông tin người đăng ký, ngày tham quan, số người, phương tiện và trạng thái duyệt"
+    },
+    "/quizAttempts/{attemptId}": {
+      "schema": "QuizAttempt",
+      "description": "Lưu trữ lịch sử điểm số các lần làm bài kiểm tra của học sinh"
+    },
+    "/visitorSessions/{sessionId}": {
+      "schema": "VisitorSession",
+      "description": "Lưu trữ dữ liệu hành trình tham quan ẩn danh của du khách"
+    },
+    "/analyticsEvents/{eventId}": {
+      "schema": "AnalyticsEvent",
+      "description": "ACTIVITY_LOG: Lưu trữ sự kiện ai truy cập, thời gian và hoạt động gì"
+    },
+    "/emailReports/{reportId}": {
+      "schema": "EmailReport",
+      "description": "Lưu trữ nhật ký báo cáo email tự động gửi tới nguyenquang1992vka@gmail.com"
+    }
+  }
+}
